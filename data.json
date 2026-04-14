@@ -1,0 +1,176 @@
+{
+	"friends": [
+		{
+			"id": "1",
+			"name": "Emma Wilson",
+			"avatar": "https://i.pravatar.cc/150?u=1",
+			"status": "On Track",
+			"lastCheckIn": "2 days ago",
+			"relationshipScore": 85,
+			"goals": 2,
+			"actionItems": 1
+		},
+		{
+			"id": "2",
+			"name": "Liam Rodriguez",
+			"avatar": "https://i.pravatar.cc/150?u=2",
+			"status": "Need Attention",
+			"lastCheckIn": "3 weeks ago",
+			"relationshipScore": 60,
+			"goals": 1,
+			"actionItems": 3
+		},
+		{
+			"id": "3",
+			"name": "Sophia Lee",
+			"avatar": "https://i.pravatar.cc/150?u=4",
+			"status": "Celebration",
+			"lastCheckIn": "5 days ago",
+			"relationshipScore": 80,
+			"goals": 2,
+			"actionItems": 1
+		},
+		{
+			"id": "4",
+			"name": "James Taylor",
+			"avatar": "https://i.pravatar.cc/150?u=3",
+			"status": "On Track",
+			"lastCheckIn": "1 day ago",
+			"relationshipScore": 95,
+			"goals": 3,
+			"actionItems": 0
+		},
+		{
+			"id": "5",
+			"name": "Daniel Martinez",
+			"avatar": "https://i.pravatar.cc/150?u=5",
+			"status": "Celebration",
+			"lastCheckIn": "1 month ago",
+			"relationshipScore": 40,
+			"goals": 1,
+			"actionItems": 4
+		},
+		{
+			"id": "6",
+			"name": "Olivia White",
+			"avatar": "https://i.pravatar.cc/150?u=6",
+			"status": "On Track",
+			"lastCheckIn": "1 week ago",
+			"relationshipScore": 75,
+			"goals": 1,
+			"actionItems": 2
+		},
+		{
+			"id": "7",
+			"name": "Ethan Martinez",
+			"avatar": "https://i.pravatar.cc/150?u=7",
+			"status": "Need Attention",
+			"lastCheckIn": "2 weeks ago",
+			"relationshipScore": 50,
+			"goals": 1,
+			"actionItems": 2
+		},
+		{
+			"id": "8",
+			"name": "Avery Reyes",
+			"avatar": "https://i.pravatar.cc/150?u=8",
+			"status": "Celebration",
+			"lastCheckIn": "3 days ago",
+			"relationshipScore": 90,
+			"goals": 2,
+			"actionItems": 0
+		},
+		{
+			"id": "9",
+			"name": "David Silva",
+			"avatar": "https://i.pravatar.cc/150?u=9",
+			"status": "Need Attention",
+			"lastCheckIn": "1 month ago",
+			"relationshipScore": 45,
+			"goals": 1,
+			"actionItems": 1
+		},
+		{
+			"id": "10",
+			"name": "Emma Wilson",
+			"avatar": "https://i.pravatar.cc/150?u=12",
+			"status": "On Track",
+			"lastCheckIn": "4 days ago",
+			"relationshipScore": 88,
+			"goals": 2,
+			"actionItems": 1
+		},
+		{
+			"id": "11",
+			"name": "Liam Rodriguez",
+			"avatar": "https://i.pravatar.cc/150?u=11",
+			"status": "Need Attention",
+			"lastCheckIn": "3 weeks ago",
+			"relationshipScore": 65,
+			"goals": 1,
+			"actionItems": 2
+		},
+		{
+			"id": "12",
+			"name": "Avery Reyes",
+			"avatar": "https://i.pravatar.cc/150?u=10",
+			"status": "On Track",
+			"lastCheckIn": "1 week ago",
+			"relationshipScore": 82,
+			"goals": 3,
+			"actionItems": 1
+		}
+	],
+	"interactions": [
+		{
+			"id": "101",
+			"friendId": "1",
+			"friendName": "Emma Wilson",
+			"friendAvatar": "https://i.pravatar.cc/150?u=1",
+			"type": "call",
+			"date": "Feb 26, 2026",
+			"notes": "Great catch up on her new job!"
+		},
+		{
+			"id": "102",
+			"friendId": "2",
+			"friendName": "Liam Rodriguez",
+			"friendAvatar": "https://i.pravatar.cc/150?u=2",
+			"type": "text",
+			"date": "Feb 15, 2026",
+			"notes": "Asked about his weekend."
+		},
+		{
+			"id": "103",
+			"friendId": "3",
+			"friendName": "James Taylor",
+			"friendAvatar": "https://i.pravatar.cc/150?u=3",
+			"type": "video",
+			"date": "Feb 28, 2026",
+			"notes": "Celebrated his birthday virtually."
+		},
+		{
+			"id": "104",
+			"friendId": "4",
+			"friendName": "Sophia Lee",
+			"friendAvatar": "https://i.pravatar.cc/150?u=4",
+			"type": "meeting",
+			"date": "Feb 20, 2026",
+			"notes": "Coffee at the local cafe."
+		},
+		{
+			"id": "105",
+			"friendId": "1",
+			"friendName": "Emma Wilson",
+			"friendAvatar": "https://i.pravatar.cc/150?u=1",
+			"type": "text",
+			"date": "Feb 10, 2026",
+			"notes": "Sent a funny meme."
+		}
+	],
+	"analytics": [
+		{ "name": "On Track", "value": 60, "fill": "#10b981" },
+		{ "name": "Need Attention", "value": 25, "fill": "#ef4444" },
+		{ "name": "Celebration", "value": 15, "fill": "#3b82f6" }
+	]
+}
