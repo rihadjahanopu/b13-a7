@@ -22,8 +22,6 @@ export default function FriendProfile() {
 	const [friend, setFriend] = useState(null);
 	const [loading, setLoading] = useState(true);
 	const [isPending, setIsPending] = useState(false);
-	// ✅ Local timeline state
-	const [interactions, setInteractions] = useState([]);
 
 	useEffect(() => {
 		async function load() {
@@ -37,38 +35,6 @@ export default function FriendProfile() {
 		}
 		load();
 	}, [params.id]);
-
-	const handleAction = async (action) => {
-		setIsPending(true);
-
-		try {
-			const result = await addInteraction(
-				friend.id,
-				friend.name,
-				friend.avatar,
-				action
-			);
-
-			if (result.success) {
-				// ✅ Immediately add to local state (real-time)
-				setInteractions((prev) => [result.interaction, ...prev]);
-
-				const icon =
-					action === "call" ? "📞"
-					: action === "text" ? "💬"
-					: "🎥";
-				const actionLabel = action.charAt(0).toUpperCase() + action.slice(1);
-
-				toast.success(`${icon} ${actionLabel} with ${friend.name} added!`, {
-					duration: 3000,
-				});
-			}
-		} catch (error) {
-			toast.error("Failed to add interaction");
-		} finally {
-			setIsPending(false);
-		}
-	};
 
 	if (loading) {
 		return (
@@ -90,6 +56,40 @@ export default function FriendProfile() {
 			</div>
 		);
 	}
+
+	const handleAction = async (action) => {
+		setIsPending(true);
+
+		try {
+			// Call server action
+			const result = await addInteraction(
+				friend.id,
+				friend.name,
+				friend.avatar,
+				action
+			);
+
+			if (result.success) {
+				// ✅ Toast notification with icon
+				const icon =
+					action === "call" ? "📞"
+					: action === "text" ? "💬"
+					: "🎥";
+				const actionLabel = action.charAt(0).toUpperCase() + action.slice(1);
+
+				toast.success(
+					`${icon} ${actionLabel} with ${friend.name} added to timeline!`,
+					{
+						duration: 3000,
+					}
+				);
+			}
+		} catch (error) {
+			toast.error("Failed to add interaction. Please try again.");
+		} finally {
+			setIsPending(false);
+		}
+	};
 
 	return (
 		<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -206,7 +206,6 @@ export default function FriendProfile() {
 						</p>
 					</div>
 
-					{/* Quick Check-In */}
 					<div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
 						<h2 className="text-[17px] font-bold text-[#2d5a45] mb-6">
 							Quick Check-In
