@@ -1,10 +1,8 @@
 "use server";
 
 import { mockInteractions } from "@/lib/mock-data";
-import { revalidatePath } from "next/cache";
 
 export async function addInteraction(friendId, friendName, friendAvatar, type) {
-	// Capitalize first letter: "call" -> "Call"
 	const actionLabel = type.charAt(0).toUpperCase() + type.slice(1);
 
 	const newInteraction = {
@@ -13,17 +11,19 @@ export async function addInteraction(friendId, friendName, friendAvatar, type) {
 		friendName,
 		friendAvatar,
 		type,
-		// ✅ Title format: "Call with Alex Johnson"
 		title: `${actionLabel} with ${friendName}`,
 		date: new Date().toLocaleDateString("en-US", {
 			month: "short",
 			day: "numeric",
 			year: "numeric",
 		}),
-		notes: `Quick ${type} check-in`,
 	};
 
 	mockInteractions.unshift(newInteraction);
-	revalidatePath("/timeline");
-	return { success: true, interaction: newInteraction };
+
+	return {
+		success: true,
+		interaction: newInteraction,
+		allInteractions: [...mockInteractions], // fresh copy
+	};
 }
