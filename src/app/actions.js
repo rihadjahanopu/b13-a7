@@ -12,7 +12,7 @@ export async function addInteraction(friendId, friendName, friendAvatar, type) {
 		friendName,
 		friendAvatar,
 		type,
-		// ✅ Title format: "Call with Alex Johnson"
+
 		title: `${actionLabel} with ${friendName}`,
 		date: new Date().toLocaleDateString("en-US", {
 			month: "short",
