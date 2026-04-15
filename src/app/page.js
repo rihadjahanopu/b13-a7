@@ -83,6 +83,8 @@ function FriendCard({ friend }) {
 					src={friend.avatar}
 					alt={friend.name}
 					className="w-full h-full object-cover"
+					width="80"
+					height="80"
 				/>
 			</div>
 			<h3 className="font-bold text-[#1a202c] text-[15px] mb-1">
