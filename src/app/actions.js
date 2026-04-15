@@ -4,7 +4,6 @@ import { mockInteractions } from "@/lib/mock-data";
 import { revalidatePath } from "next/cache";
 
 export async function addInteraction(friendId, friendName, friendAvatar, type) {
-	// Capitalize first letter: "call" -> "Call"
 	const actionLabel = type.charAt(0).toUpperCase() + type.slice(1);
 
 	const newInteraction = {
