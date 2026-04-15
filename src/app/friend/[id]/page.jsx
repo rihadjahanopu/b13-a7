@@ -21,6 +21,7 @@ export default function FriendProfile() {
 	const router = useRouter();
 	const [friend, setFriend] = useState(null);
 	const [loading, setLoading] = useState(true);
+	const [isPending, setIsPending] = useState(false);
 
 	useEffect(() => {
 		async function load() {
@@ -57,15 +58,37 @@ export default function FriendProfile() {
 	}
 
 	const handleAction = async (action) => {
-		toast.success(`Interaction added to timeline!`, {
-			icon:
-				action === "call" ? "📞"
-				: action === "text" ? "💬"
-				: "🎥",
-			duration: 3000,
-		});
+		setIsPending(true);
 
-		await addInteraction(friend.id, friend.name, friend.avatar, action);
+		try {
+			// Call server action
+			const result = await addInteraction(
+				friend.id,
+				friend.name,
+				friend.avatar,
+				action
+			);
+
+			if (result.success) {
+				// ✅ Toast notification with icon
+				const icon =
+					action === "call" ? "📞"
+					: action === "text" ? "💬"
+					: "🎥";
+				const actionLabel = action.charAt(0).toUpperCase() + action.slice(1);
+
+				toast.success(
+					`${icon} ${actionLabel} with ${friend.name} added to timeline!`,
+					{
+						duration: 3000,
+					}
+				);
+			}
+		} catch (error) {
+			toast.error("Failed to add interaction. Please try again.");
+		} finally {
+			setIsPending(false);
+		}
 	};
 
 	return (
@@ -81,7 +104,8 @@ export default function FriendProfile() {
 								width={96}
 								height={96}
 								className="w-full h-full object-cover"
-								priority={false}></Image>
+								priority={false}
+							/>
 						</div>
 
 						<h1 className="text-[22px] font-bold text-[#1a202c] mb-3">
@@ -188,8 +212,9 @@ export default function FriendProfile() {
 						</h2>
 						<div className="grid grid-cols-3 gap-4">
 							<button
+								disabled={isPending}
 								onClick={() => handleAction("call")}
-								className="bg-[#f8fafc] border border-gray-100 hover:border-[#cbd5e1] hover:bg-white rounded-xl py-6 flex flex-col items-center justify-center gap-3 transition-all cursor-pointer">
+								className="bg-[#f8fafc] border border-gray-100 hover:border-[#cbd5e1] hover:bg-white rounded-xl py-6 flex flex-col items-center justify-center gap-3 transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
 								<Phone
 									size={24}
 									className="text-[#334155] stroke-[1.5]"
@@ -200,8 +225,9 @@ export default function FriendProfile() {
 							</button>
 
 							<button
+								disabled={isPending}
 								onClick={() => handleAction("text")}
-								className="bg-[#f8fafc] border border-gray-100 hover:border-[#cbd5e1] hover:bg-white rounded-xl py-6 flex flex-col items-center justify-center gap-3 transition-all cursor-pointer">
+								className="bg-[#f8fafc] border border-gray-100 hover:border-[#cbd5e1] hover:bg-white rounded-xl py-6 flex flex-col items-center justify-center gap-3 transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
 								<MessageSquare
 									size={24}
 									className="text-[#334155] stroke-[1.5]"
@@ -212,8 +238,9 @@ export default function FriendProfile() {
 							</button>
 
 							<button
+								disabled={isPending}
 								onClick={() => handleAction("video")}
-								className="bg-[#f8fafc] border border-gray-100 hover:border-[#cbd5e1] hover:bg-white rounded-xl py-6 flex flex-col items-center justify-center gap-3 transition-all cursor-pointer">
+								className="bg-[#f8fafc] border border-gray-100 hover:border-[#cbd5e1] hover:bg-white rounded-xl py-6 flex flex-col items-center justify-center gap-3 transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
 								<Video
 									size={24}
 									className="text-[#334155] stroke-[1.5]"
