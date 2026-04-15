@@ -10,7 +10,10 @@ export default async function Analytics() {
 				Friendship Analytics
 			</h1>
 
-			<div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-12 grow flex items-center justify-center">
+			<div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-12 grow flex items-center justify-center relative">
+				<p className="text-lg font-medium text-gray-700 mb-4 absolute top-6 left-6">
+					By Interaction Type
+				</p>
 				<div className="w-full max-w-lg">
 					<AnalyticsChart data={data} />
 				</div>
