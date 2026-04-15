@@ -78,14 +78,13 @@ function FriendCard({ friend }) {
 		<Link
 			href={`/friend/${friend.id}`}
 			className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 flex flex-col items-center hover:shadow-md hover:border-gray-200 transition-all cursor-pointer group">
-			<div className="w-20 h-20 rounded-full overflow-hidden mb-5">
+			<div className="w-20 h-20 rounded-full overflow-hidden mb-5 relative">
 				<Image
 					src={friend.avatar}
 					alt={friend.name}
-					className="w-full h-full object-cover"
-					width="80"
-					height="80"
-				/>
+					width={80}
+					height={80}
+					className="w-full h-full object-cover"></Image>
 			</div>
 			<h3 className="font-bold text-[#1a202c] text-[15px] mb-1">
 				{friend.name}
