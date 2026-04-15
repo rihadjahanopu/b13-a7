@@ -24,7 +24,6 @@ export async function addInteraction(friendId, friendName, friendAvatar, type) {
 	};
 
 	mockInteractions.unshift(newInteraction);
-
-	revalidatePath("/", "layout");
+	revalidatePath("/timeline");
 	return { success: true, interaction: newInteraction };
 }

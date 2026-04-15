@@ -195,13 +195,7 @@ export const mockFriends = [
 	},
 ];
 
-const globalForMock = globalThis;
-
-if (!globalForMock.mockInteractions) {
-	globalForMock.mockInteractions = [];
-}
-
-export let mockInteractions = globalForMock.mockInteractions;
+export let mockInteractions = [];
 
 export async function getInteractions() {
 	return mockInteractions;
