@@ -70,6 +70,7 @@ export default function FriendProfile() {
 			);
 
 			if (result.success) {
+				router.refresh();
 				// ✅ Toast notification with icon
 				const icon =
 					action === "call" ? "📞"
