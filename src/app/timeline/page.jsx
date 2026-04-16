@@ -1,10 +1,7 @@
-import { getInteractions } from "@/lib/mock-data";
-import TimelineClient from "../../components/ui/TimelineClient";
+"use client";
 
-export const dynamic = "force-dynamic";
+import TimelineClient from "../../components/ui/TimelineClient.jsx";
 
-export default async function Timeline() {
-	const interactions = await getInteractions();
-
-	return <TimelineClient initialInteractions={interactions} />;
+export default function TimelinePage() {
+	return <TimelineClient />;
 }
